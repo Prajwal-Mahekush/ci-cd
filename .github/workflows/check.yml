@@ -1,0 +1,14 @@
+name: Check files exist
+
+   on:
+     pull_request:
+       branches: [main]
+
+   jobs:
+     check:
+       runs-on: ubuntu-latest
+       steps:
+         - name: Checkout code
+           uses: actions/checkout@v4
+         - name: Confirm hello.txt exists
+           run: test -f hello.txt && echo "hello.txt found!"
